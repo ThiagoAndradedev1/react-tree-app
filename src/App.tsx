@@ -143,7 +143,7 @@ const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
             <button
               onClick={() => {
                 const desc = getDescendants(node);
-                console.log(desc);
+                console.log(node.expanded);
                 desc.forEach((cNode) => {
                   cNode.expanded = !cNode.expanded;
                 });
