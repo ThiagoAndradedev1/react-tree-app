@@ -1,5 +1,5 @@
 import "./App.css";
-import { flattenData } from "./utils/flat-object";
+import { flattenData } from "./utils/flat-object-utils";
 import dataJson from "./data.json";
 import CheckboxTree from "./components/CheckboxTree";
 

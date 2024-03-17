@@ -1,4 +1,4 @@
-import { flattenData, flattenNodeFn } from "../../utils/flat-object";
+import { flattenData, flattenNodeFn } from "../../utils/flat-object-utils";
 import { FlatNode } from "../../data/flat-node";
 import { Node } from "../../data/ node";
 

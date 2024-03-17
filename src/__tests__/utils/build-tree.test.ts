@@ -1,5 +1,5 @@
 import { FlatNode } from "../../data/flat-node";
-import { buildTree } from "../../utils/build-tree";
+import { buildTree } from "../../utils/build-tree-utils";
 
 describe("buildTree", () => {
   const flatData: FlatNode[] = [

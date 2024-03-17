@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FlatNode } from "../data/flat-node";
 import { CheckboxTreeNode } from "../data/checkbox-tree-node";
-import { buildTree } from "../utils/build-tree";
+import { buildTree } from "../utils/build-tree-utils";
 import {
   getDescendants,
   handleCheckDescendants,
