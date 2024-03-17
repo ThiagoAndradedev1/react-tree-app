@@ -37,8 +37,9 @@ const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
     return nodes.map((node) => (
       <div
         style={{
-          justifyContent: "space-between",
           marginLeft: `${node.level * 20}px`,
+          marginTop: "15px",
+          marginBottom: "15px",
         }}
         key={node.id}
       >

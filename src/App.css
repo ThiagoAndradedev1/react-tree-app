@@ -25,3 +25,12 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 }
+
+.checkbox-content {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-label {
+  margin-left: 5px;
+}

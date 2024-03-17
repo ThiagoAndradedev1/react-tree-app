@@ -24,8 +24,8 @@ const Checkbox = ({
   }, [inputRef, indeterminate, label, checked]);
 
   return (
-    <div className="checkbox-content">
-      <label>
+    <div>
+      <div className="checkbox-content">
         <input
           type="checkbox"
           name={name}
@@ -33,8 +33,8 @@ const Checkbox = ({
           onChange={onChange}
           ref={inputRef}
         />
-        <span>{label}</span>
-      </label>
+        <span className="checkbox-label">{label}</span>
+      </div>
     </div>
   );
 };
