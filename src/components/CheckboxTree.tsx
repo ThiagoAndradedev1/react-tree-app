@@ -16,14 +16,6 @@ interface CheckboxTreeProps {
 const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
   const [treeData, setTreeData] = useState<CheckboxTreeNode[]>(buildTree(data));
 
-  function handleCheckboxChange(node: CheckboxTreeNode): void {
-    node.checked = !node.checked;
-    handleCheckDescendants(node, treeData);
-    handleCheckParent(node, treeData);
-    setTreeData([...treeData]);
-    localStorage.setItem("treeData", JSON.stringify(treeData));
-  }
-
   useEffect(() => {
     const savedData = localStorage.getItem("treeData");
     if (savedData) {
@@ -32,6 +24,14 @@ const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
       setTreeData(data);
     }
   }, []);
+
+  function handleCheckboxChange(node: CheckboxTreeNode): void {
+    node.checked = !node.checked;
+    handleCheckDescendants(node, treeData);
+    handleCheckParent(node, treeData);
+    setTreeData([...treeData]);
+    localStorage.setItem("treeData", JSON.stringify(treeData));
+  }
 
   function renderTreeNodes(nodes: CheckboxTreeNode[]): JSX.Element[] {
     return nodes.map((node) => (
