@@ -1,13 +1,13 @@
-import { FlatPerson } from "../data/flat-person";
+import { FlatNode } from "../data/flat-node";
 
-interface CheckboxTreeNode extends FlatPerson {
+interface CheckboxTreeNode extends FlatNode {
   children: CheckboxTreeNode[];
   checked: boolean;
   indeterminate: boolean;
   expanded: boolean;
 }
 
-export function buildTree(flatData: FlatPerson[]): CheckboxTreeNode[] {
+export function buildTree(flatData: FlatNode[]): CheckboxTreeNode[] {
   const treeMap = new Map<string, CheckboxTreeNode>();
   const rootNodes: CheckboxTreeNode[] = [];
 

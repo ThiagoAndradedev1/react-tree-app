@@ -1,10 +1,10 @@
 import { flattenData, flattenPersonFn } from "../../utils/flat-object";
-import { FlatPerson } from "../../data/flat-person";
-import { Person } from "../../data/person";
+import { FlatNode } from "../../data/flat-node";
+import { Node } from "../../data/ node";
 
 describe("flattenData", () => {
   test("flattens data correctly", () => {
-    const data: Record<string, Person> = {
+    const data: Record<string, Node> = {
       "1": {
         id: "1",
         name: "John Doe",
@@ -20,7 +20,7 @@ describe("flattenData", () => {
       },
     };
 
-    const expectedFlatData: FlatPerson[] = [
+    const expectedFlatData: FlatNode[] = [
       { id: "1", name: "John Doe", level: 0, expanded: true },
       { id: "2", name: "Jane Doe", level: 1, expanded: false },
     ];
@@ -32,7 +32,7 @@ describe("flattenData", () => {
 
 describe("flattenPersonFn", () => {
   test("flattens person correctly", () => {
-    const person: Person = {
+    const person: Node = {
       id: "1",
       name: "John Doe",
       level: 0,
@@ -46,12 +46,12 @@ describe("flattenPersonFn", () => {
       },
     };
 
-    const expectedFlatPerson: FlatPerson[] = [
+    const expectedFlatPerson: FlatNode[] = [
       { id: "1", name: "John Doe", level: 0, expanded: true },
       { id: "2", name: "Jane Doe", level: 1, expanded: false },
     ];
 
-    const flattenedPerson: FlatPerson[] = [];
+    const flattenedPerson: FlatNode[] = [];
     flattenPersonFn(person, 0, flattenedPerson);
     expect(flattenedPerson).toEqual(expectedFlatPerson);
   });

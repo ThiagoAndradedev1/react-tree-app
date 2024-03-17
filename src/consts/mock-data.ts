@@ -1,6 +1,6 @@
-import { Person } from "../data/person";
+import { Node } from "../data/ node";
 
-const DATA: Record<string, Person> = {
+const DATA: Record<string, Node> = {
   "0": {
     id: "001",
     name: "Frieren",

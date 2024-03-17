@@ -1,8 +1,8 @@
-import { FlatPerson } from "../../data/flat-person";
+import { FlatNode } from "../../data/flat-node";
 import { buildTree } from "../../utils/build-tree";
 
 describe("buildTree", () => {
-  const flatData: FlatPerson[] = [
+  const flatData: FlatNode[] = [
     { id: "1", name: "Node 1", level: 0, expanded: true },
     { id: "1-1", name: "Node 1-1", level: 1, expanded: true },
     { id: "1-2", name: "Node 1-2", level: 1, expanded: true },

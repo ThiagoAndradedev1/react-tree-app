@@ -1,10 +1,10 @@
-import { FlatPerson } from "../../data/flat-person";
+import { FlatNode } from "../../data/flat-node";
 import {
   handleCheckDescendants,
   getDescendants,
 } from "../../utils/descendants-utils";
 
-interface CheckboxTreeNode extends FlatPerson {
+interface CheckboxTreeNode extends FlatNode {
   children: CheckboxTreeNode[];
   checked: boolean;
   indeterminate: boolean;

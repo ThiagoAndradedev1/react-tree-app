@@ -1,12 +1,12 @@
-import { FlatPerson } from "../data/flat-person";
-import { Person } from "../data/person";
+import { FlatNode } from "../data/flat-node";
+import { Node } from "../data/ node";
 
 function flattenPersonFn(
-  person: Person,
+  person: Node,
   level: number,
-  result: FlatPerson[]
+  result: FlatNode[]
 ): void {
-  const flatPerson: FlatPerson = {
+  const flatPerson: FlatNode = {
     id: person.id,
     name: person.name,
     level: level,
@@ -20,8 +20,8 @@ function flattenPersonFn(
   }
 }
 
-function flattenData(data: Record<string, Person>): FlatPerson[] {
-  const flattenedData: FlatPerson[] = [];
+function flattenData(data: Record<string, Node>): FlatNode[] {
+  const flattenedData: FlatNode[] = [];
   for (const key in data) {
     const person = data[key];
     flattenPersonFn(person, 0, flattenedData);

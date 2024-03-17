@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { flattenData } from "./utils/flat-object";
 import { buildTree } from "./utils/build-tree";
-import { FlatPerson } from "./data/flat-person";
+import { FlatNode } from "./data/flat-node";
 import {
   handleCheckDescendants,
   getDescendants,
@@ -11,7 +11,7 @@ import {
 import dataJson from "./data.json";
 import Checkbox from "./components/Checkbox";
 
-interface CheckboxTreeNode extends FlatPerson {
+interface CheckboxTreeNode extends FlatNode {
   children: CheckboxTreeNode[];
   checked: boolean;
   indeterminate: boolean;
@@ -19,7 +19,7 @@ interface CheckboxTreeNode extends FlatPerson {
 }
 
 interface CheckboxTreeProps {
-  data: FlatPerson[];
+  data: FlatNode[];
   onSave?: () => void;
 }
 

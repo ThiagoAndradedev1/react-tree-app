@@ -1,8 +1,8 @@
-interface FlatPerson {
+interface FlatNode {
   id: string;
   name: string;
   level: number;
   expanded: boolean;
 }
 
-export type { FlatPerson };
+export type { FlatNode };
