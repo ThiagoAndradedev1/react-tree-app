@@ -1,11 +1,5 @@
+import { CheckboxTreeNode } from "../data/checkbox-tree-node";
 import { FlatNode } from "../data/flat-node";
-
-interface CheckboxTreeNode extends FlatNode {
-  children: CheckboxTreeNode[];
-  checked: boolean;
-  indeterminate: boolean;
-  expanded: boolean;
-}
 
 export function buildTree(flatData: FlatNode[]): CheckboxTreeNode[] {
   const treeMap = new Map<string, CheckboxTreeNode>();

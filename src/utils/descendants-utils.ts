@@ -1,11 +1,4 @@
-import { FlatNode } from "../data/flat-node";
-
-interface CheckboxTreeNode extends FlatNode {
-  children: CheckboxTreeNode[];
-  checked: boolean;
-  indeterminate: boolean;
-  expanded: boolean;
-}
+import { CheckboxTreeNode } from "../data/checkbox-tree-node";
 
 function handleCheckDescendants(
   node: CheckboxTreeNode,
