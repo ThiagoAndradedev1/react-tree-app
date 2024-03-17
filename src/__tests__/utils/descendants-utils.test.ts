@@ -73,8 +73,8 @@ describe("handleCheckDescendants", () => {
     handleCheckDescendants(parentNode, treeData);
 
     expect(parentNode.indeterminate).toBe(false);
-    expect(parentNode.children[0].checked).toBe(true); // Aqui ajustamos para true, pois parentNode.checked foi definido como true
-    expect(parentNode.children[1].checked).toBe(true); // Aqui ajustamos para true, pois parentNode.checked foi definido como true
+    expect(parentNode.children[0].checked).toBe(true);
+    expect(parentNode.children[1].checked).toBe(true);
   });
 });
 
