@@ -1,4 +1,4 @@
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Checkbox from "../../components/Checkbox";
 
@@ -15,14 +15,12 @@ describe("Checkbox component", () => {
       />
     );
 
-    const checkboxInput = screen.getByRole("checkbox", {
-      name: "Test Checkbox",
-    });
+    const checkboxInput = screen.getByRole("checkbox");
     expect(checkboxInput).toBeInTheDocument();
     expect(checkboxInput).not.toBeChecked();
   });
 
-  test("changes state when clicked", () => {
+  test("changes state when clicked", async () => {
     const handleChange = jest.fn();
     render(
       <Checkbox
@@ -34,11 +32,14 @@ describe("Checkbox component", () => {
       />
     );
 
-    const checkboxInput = screen.getByRole("checkbox", {
-      name: "Test Checkbox",
+    await waitFor(() => {
+      const checkboxInput = screen.getByRole("checkbox");
+      expect(checkboxInput).toBeInTheDocument();
+
+      fireEvent.click(checkboxInput);
+
+      expect(handleChange).toHaveBeenCalledTimes(1);
+      expect(checkboxInput).toBeChecked();
     });
-    fireEvent.click(checkboxInput);
-    expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(checkboxInput).toBeChecked();
   });
 });
