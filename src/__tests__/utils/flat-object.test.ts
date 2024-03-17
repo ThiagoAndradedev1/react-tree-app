@@ -1,4 +1,4 @@
-import { flattenData, flattenPersonFn } from "../../utils/flat-object";
+import { flattenData, flattenNodeFn } from "../../utils/flat-object";
 import { FlatNode } from "../../data/flat-node";
 import { Node } from "../../data/ node";
 
@@ -52,7 +52,7 @@ describe("flattenPersonFn", () => {
     ];
 
     const flattenedPerson: FlatNode[] = [];
-    flattenPersonFn(person, 0, flattenedPerson);
+    flattenNodeFn(person, 0, flattenedPerson);
     expect(flattenedPerson).toEqual(expectedFlatPerson);
   });
 });
