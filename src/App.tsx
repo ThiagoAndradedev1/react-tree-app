@@ -10,6 +10,7 @@ import {
 
 import dataJson from "./data.json";
 import Checkbox from "./components/Checkbox";
+import { handleCheckParent } from "./utils/parent-utils";
 
 interface CheckboxTreeNode extends FlatNode {
   children: CheckboxTreeNode[];
@@ -29,7 +30,7 @@ const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
   function handleCheckboxChange(node: CheckboxTreeNode): void {
     node.checked = !node.checked;
     handleCheckDescendants(node, treeData);
-    handleCheckParent(node);
+    handleCheckParent(node, treeData);
     setTreeData([...treeData]);
     localStorage.setItem("treeData", JSON.stringify(treeData));
   }
@@ -43,34 +44,34 @@ const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
     }
   }, []);
 
-  function handleCheckParent(node: CheckboxTreeNode): void {
-    const parent = getParent(node);
-    if (parent) {
-      const children = getDescendants(parent, treeData);
-      parent.checked = children.every((child) => child.checked);
-      parent.indeterminate =
-        children.some((child) => child.checked) && !parent.checked;
-      handleCheckParent(parent);
-    }
-  }
+  // function handleCheckParent(node: CheckboxTreeNode): void {
+  //   const parent = getParent(node);
+  //   if (parent) {
+  //     const children = getDescendants(parent, treeData);
+  //     parent.checked = children.every((child) => child.checked);
+  //     parent.indeterminate =
+  //       children.some((child) => child.checked) && !parent.checked;
+  //     handleCheckParent(parent);
+  //   }
+  // }
 
-  function getParent(childNode: CheckboxTreeNode): CheckboxTreeNode | null {
-    if (childNode.level === 0) {
-      return null;
-    }
+  // function getParent(childNode: CheckboxTreeNode): CheckboxTreeNode | null {
+  //   if (childNode.level === 0) {
+  //     return null;
+  //   }
 
-    const startIndex = treeData.findIndex(
-      (flattenNode) => flattenNode.id === childNode.id
-    );
+  //   const startIndex = treeData.findIndex(
+  //     (flattenNode) => flattenNode.id === childNode.id
+  //   );
 
-    for (let i = startIndex; i >= 0; i--) {
-      const currentNode = treeData[i];
-      if (currentNode.level < childNode.level) {
-        return currentNode;
-      }
-    }
-    return null;
-  }
+  //   for (let i = startIndex; i >= 0; i--) {
+  //     const currentNode = treeData[i];
+  //     if (currentNode.level < childNode.level) {
+  //       return currentNode;
+  //     }
+  //   }
+  //   return null;
+  // }
 
   function renderTreeNodes(nodes: CheckboxTreeNode[]): JSX.Element[] {
     return nodes.map((node) => (
