@@ -11,7 +11,6 @@ import Checkbox from "./Checkbox";
 
 interface CheckboxTreeProps {
   data: FlatNode[];
-  onSave?: () => void;
 }
 
 const CheckboxTree: React.FC<CheckboxTreeProps> = ({ data }) => {
